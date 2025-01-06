@@ -10,7 +10,8 @@ export default async function HomePage({
 }) {
   // Resolva a Promise antes de renderizar o componente
   const query = (await searchParams).query;
-  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY });
+  const params = { search: query || null };
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
     <>
